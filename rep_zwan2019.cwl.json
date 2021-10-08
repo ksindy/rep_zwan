@@ -1,0 +1,20 @@
+class: CommandLineTool
+cwlVersion: v1.0
+$namespaces:
+  sbg: 'https://www.sevenbridges.com/'
+baseCommand:
+  - echo
+inputs:
+  - id: Genome
+    type: file
+outputs:
+  - id: env_count
+    type: int
+arguments:
+  - position: 0
+    shellQuote: false
+    valueFrom: |
+      {\\"env_count\\": \$(env | wc -l)}
+requirements:
+  - class: ShellCommandRequirement
+stdout: cwl.output.json
