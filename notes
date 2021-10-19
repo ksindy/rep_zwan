@@ -2,3 +2,13 @@
 * github.com/gatk-workflows/gatk4-data-processing:2.1.1
 * github.com/gatk-workflows/gatk4-data-processing/processing-for-variant-discovery-gatk4
 * DOI 10.5281/zenodo.4469317
+
+1. Pull latest womtool docker image
+broadinstitute/womtool   68
+
+2. Image had ENTRYPOINT so override and run in interactive mode: 
+`$ docker run -it -v /Users/karlysindy/Documents/git_repos/rep_zwan2019/variant-discovery-gatk4-workflow:/data --entrypoint=/bin/sh 54a3e3e4227b -i`
+
+3. Create graph of .wdl using graph function 
+`$ java -jar /app/womtool.jar graph  processing-for-variant-discovery-gatk4.wdl > processing-for-variant-discovery-gatk4.graph`
+
